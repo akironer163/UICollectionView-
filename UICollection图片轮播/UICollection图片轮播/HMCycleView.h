@@ -10,4 +10,7 @@
 
 @interface HMCycleView : UIView
 
+//用来接收VC的图片数组
+@property(nonatomic, strong)NSArray<UIImage *> *arrayList;
+
 @end

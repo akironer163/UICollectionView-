@@ -12,6 +12,8 @@
 
 @interface ViewController ()
 
+@property (nonatomic, weak)HMCycleView *cycleView;
+
 @end
 
 @implementation ViewController {
@@ -41,6 +43,8 @@
         make.height.equalTo(@100);
     }];
     
+    self.cycleView = cycleView;
+    
 }
 
 - (void)loadData {
@@ -56,11 +60,8 @@
         [arrayM addObject:image];
     }
     
-    NSURL *url = [NSURL URLWithString:@"http://a.hiphotos.baidu.com/zhidao/pic/item/72f082025aafa40fa38bfc55a964034f79f019ec.jpg"];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    
-    [arrayM addObject:[UIImage imageWithData:data]];
-    
     _arrayList = arrayM.copy;
+    
+    _cycleView.arrayList = _arrayList;
 }
 @end

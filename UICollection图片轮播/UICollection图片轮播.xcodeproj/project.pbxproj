@@ -31,6 +31,7 @@
 		CE70D7FD1D69497C00030CDB /* Home_Scroll_05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE70D7F81D69497C00030CDB /* Home_Scroll_05.jpg */; };
 		CE70D8001D694FE600030CDB /* HMCycleView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70D7FF1D694FE600030CDB /* HMCycleView.m */; };
 		CE70D8031D6956D800030CDB /* HMCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70D8021D6956D800030CDB /* HMCollectionViewFlowLayout.m */; };
+		CE70D8061D696A1600030CDB /* HMCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE70D8051D696A1600030CDB /* HMCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,8 @@
 		CE70D7FF1D694FE600030CDB /* HMCycleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMCycleView.m; sourceTree = "<group>"; };
 		CE70D8011D6956D800030CDB /* HMCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		CE70D8021D6956D800030CDB /* HMCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		CE70D8041D696A1600030CDB /* HMCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HMCollectionViewCell.h; path = Masonry/HMCollectionViewCell.h; sourceTree = "<group>"; };
+		CE70D8051D696A1600030CDB /* HMCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HMCollectionViewCell.m; path = Masonry/HMCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,8 @@
 				CE70D7BD1D6948DB00030CDB /* ViewController.m */,
 				CE70D7FE1D694FE600030CDB /* HMCycleView.h */,
 				CE70D7FF1D694FE600030CDB /* HMCycleView.m */,
+				CE70D8041D696A1600030CDB /* HMCollectionViewCell.h */,
+				CE70D8051D696A1600030CDB /* HMCollectionViewCell.m */,
 				CE70D8011D6956D800030CDB /* HMCollectionViewFlowLayout.h */,
 				CE70D8021D6956D800030CDB /* HMCollectionViewFlowLayout.m */,
 				CE70D7B61D6948DB00030CDB /* Supporting Files */,
@@ -272,6 +277,7 @@
 				CE70D7F11D69495500030CDB /* View+MASAdditions.m in Sources */,
 				CE70D8001D694FE600030CDB /* HMCycleView.m in Sources */,
 				CE70D7ED1D69495500030CDB /* MASViewAttribute.m in Sources */,
+				CE70D8061D696A1600030CDB /* HMCollectionViewCell.m in Sources */,
 				CE70D7EA1D69495500030CDB /* MASConstraint.m in Sources */,
 				CE70D7EB1D69495500030CDB /* MASConstraintMaker.m in Sources */,
 			);

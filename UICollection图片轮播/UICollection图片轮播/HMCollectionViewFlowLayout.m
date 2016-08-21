@@ -10,4 +10,13 @@
 
 @implementation HMCollectionViewFlowLayout
 
+- (void)prepareLayout {
+    [super prepareLayout];
+    
+    self.itemSize = self.collectionView.bounds.size;
+    self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    self.minimumLineSpacing = 0;
+    
+    
+}
 @end

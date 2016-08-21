@@ -11,7 +11,7 @@
 #import "Masonry.h"
 #import "HMCollectionViewCell.h"
 
-#define kSeed 100;
+#define kSeed 100
 static NSString *cellID = @"cellID";
 
 @interface HMCycleView ()<UICollectionViewDataSource,UICollectionViewDelegate>
@@ -31,6 +31,13 @@ static NSString *cellID = @"cellID";
         [self setupUI];
     }
     return self;
+}
+
+//设置第一个显示的cell
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:_arrayList.count * kSeed * 0.5 inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -57,33 +64,32 @@ static NSString *cellID = @"cellID";
     self.pageContrl.currentPage = (NSInteger)(page + 0.5) % _arrayList.count;
 }
 
-//当scrollView停止减速的时候，会调用这个方法.
-//大致理解为collectionView停止滚动的时候会调用这个方法
-////用这个代理方法 解决第一个cell和最后一个cell不能继续滚动的问题
-//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-//    
-//    //获取当前cell
-//    HMCollectionViewCell *currentCell = [[self.collectionView visibleCells]lastObject];
-//    
-//    //当前cell的indexPath
-//    NSIndexPath *indexPath = [self.collectionView indexPathForCell:currentCell];
-//    
-//    //获取collectionView里一共有多少个cell
-//    NSInteger itemCount = [self.collectionView numberOfItemsInSection:0];
-//    
-//    //当前cell是最后一个
-////    if (indexPath.item == itemCount - 1) {
-////        
-////        //4.让collectionView跳转到图片的个数 - 1个item
-////        [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:_arrayList.count * kSeed * 0.5 - 1 inSection:0]; atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
-////    }
-//    
-//    //当前cell是第一个
-//    if (indexPath.item == 0) {
-//        
-//        NSIndexPath *toIndexPath = [NSIndexPath indexPathForItem:_arrayList.count*kSeed *0.5 inSection:0];
-//    }
-////}
+//collectionView停止减速的时候会调用这个方法
+//用这个代理方法 解决第一个cell和最后一个cell不能继续滚动的问题
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    
+    //获取当前cell
+    HMCollectionViewCell *currentCell = [[self.collectionView visibleCells]lastObject];
+    
+    //当前cell的indexPath
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell:currentCell];
+    
+    //获取collectionView里一共有多少个cell
+    NSInteger itemCount = [self.collectionView numberOfItemsInSection:0];
+    
+    //当前cell是最后一个
+    if (indexPath.item == itemCount - 1) {
+        
+        //让collectionView跳转到图片的个数 - 1个item
+        [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:_arrayList.count * kSeed - 1 inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+    }
+    
+    //当前cell是第一个
+    if (indexPath.item == 0) {
+        
+        [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:_arrayList.count * kSeed inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+    }
+}
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     

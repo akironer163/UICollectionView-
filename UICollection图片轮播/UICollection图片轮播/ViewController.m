@@ -12,16 +12,43 @@
 
 @end
 
-@implementation ViewController
+@implementation ViewController {
+    
+    //存储图片的数组
+    NSArray<UIImage *> *_arrayList;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    [self setupUI];
+    
+    [self loadData];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setupUI {
+    
 }
 
+- (void)loadData {
+    
+    NSMutableArray<UIImage *> *arrayM = [[NSMutableArray alloc] init];
+    
+    for (NSInteger i = 0; i < 5; i++) {
+        
+        NSURL *url = [[NSBundle mainBundle] URLForResource:[NSString stringWithFormat:@"Home_Scroll_%02zd.jpg",i + 1] withExtension:nil];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        UIImage *image = [UIImage imageWithData:data];
+        
+        [arrayM addObject:image];
+    }
+    
+    NSURL *url = [NSURL URLWithString:@"http://a.hiphotos.baidu.com/zhidao/pic/item/72f082025aafa40fa38bfc55a964034f79f019ec.jpg"];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    
+    [arrayM addObject:[UIImage imageWithData:data]];
+    
+    _arrayList = arrayM.copy;
+}
 @end

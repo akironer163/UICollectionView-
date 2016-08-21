@@ -44,7 +44,6 @@
     }];
     
     self.cycleView = cycleView;
-    
 }
 
 - (void)loadData {

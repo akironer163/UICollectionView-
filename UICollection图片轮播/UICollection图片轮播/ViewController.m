@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "HMCycleView.h"
+#import "Masonry.h"
 
 @interface ViewController ()
 
@@ -28,6 +30,16 @@
 }
 
 - (void)setupUI {
+    HMCycleView *cycleView = [[HMCycleView alloc] init];
+    cycleView.backgroundColor = [UIColor orangeColor];
+    
+    [self.view addSubview:cycleView];
+    
+    [cycleView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.left.right.equalTo(self.view);
+        make.height.equalTo(@100);
+    }];
     
 }
 
